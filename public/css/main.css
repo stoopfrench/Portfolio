@@ -1,0 +1,43 @@
+html {
+
+	font-size: 16px;
+}
+
+.col-12 {
+
+	margin: 0;
+	padding: 0;
+}
+
+#landingPageContainer {
+
+	width: 100vw;
+	height: 100vh;
+	background-color: #303030;
+	margin: 0;
+	padding: 0;
+}
+
+/*#landingPageTop {
+
+	width: 100vw;
+	height: 40vh;
+	background-color: #0A5C08;
+}*/
+
+#secondPageContainer {
+
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+}
+
+#secondPageTop {
+
+	width: 100vw;
+	height: 40vh;
+	background-color: #474747;
+}
+
