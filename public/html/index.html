@@ -11,9 +11,12 @@
 		<div id="landingPage" class="row">
 			<div class="col-12"> 
 				<div id="landingPageContainer">
-					<p>My name is</p>
-					<p>Aaron Allen</p>
-					<!-- <div id="landingPageTop"></div> -->
+					<div id="landingPageText">
+						<p>hello,</p>
+						<p>my name is</p>
+						<p><span>Aaron Allen</span></p>
+						<button id="enterButton" type="button">Take a look around</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -22,7 +25,7 @@
 		<div id="about" class="row">
 			<div class="col-12"> 
 				<div id="aboutPageContainer">
-					<div id="aboutTitle">
+					<div id="aboutTitle" class="title">
 						<h1>About</h1>
 					</div>
 				</div>
@@ -33,7 +36,7 @@
 		<div id="projects" class="row">
 			<div class="col-12"> 
 				<div id="projectsPageContainer">
-					<div id="projectsTitle">
+					<div id="projectsTitle" class="title">
 						<h1>Projects</h1>
 					</div>
 				</div>
@@ -44,16 +47,17 @@
 		<div id="contact" class="row">
 			<div class="col-12"> 
 				<div id="contactPageContainer">
-					<div id="contactTitle">
+					<div id="contactTitle" class="title">
 						<h1>Contact</h1>
 					</div>
 					<div id="contactForm">
-						<form class="col-lg-6 col-md-12 mx-auto">
+						<form class="col-lg-6 col-md-8 col-sm-10 col-xs-12 mx-auto">
 							<div class="form-group">
 							<label for="contactNameInput">Name</label>
 							<input id="contactNameInput" type="name" class="form-control">
 							<label for="contactTextArea">Message</label>
 							<textarea name="Text Input" id="contactTextArea" class="form-control" rows="10"></textarea>
+							<input type="submit" value="Send Message">
 							</div>
 						</form>
 					</div>
@@ -66,7 +70,7 @@
 			<div class="col-12"></div>
 		</div>
 	</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="/js/main.js"></script>
