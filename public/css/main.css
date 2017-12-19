@@ -44,31 +44,28 @@ div.col-12 {
 #landingPageText {
 
 	position: relative;
-	top: 15vh;
+	top: 10vh;
 }
 
 #landingPageText p {
 	
-	font-size: 5rem;
+	font-size: 4.5rem;
 }
 
 #landingPageText span {
 
-	font-size: 6rem;
 	color: #FFA500;
-	font-variant: small-caps;
 }
 
 #enterButton {
 	
-	margin-top: 3rem;
+	margin-top: 2.5rem;
 }
 
 #aboutPageContainer {
 
 	width: 100vw;
 	height: 100vh;
-	/*background-color: white;*/
 	margin: 0;
 	padding: 0;
 }
@@ -79,11 +76,21 @@ div.col-12 {
 	text-align: center;
 }
 
+#svgContainer {
+
+	text-align: center;
+}
+
+#svgContainer img {
+
+	height: 150px;
+	width: 150px;
+}
+
 #projectsPageContainer {
 
 	width: 100vw;
 	height: 100vh;
-	/*background-color: white;*/
 	margin: 0;
 	padding: 0;
 }
@@ -98,7 +105,6 @@ div.col-12 {
 
 	width: 100vw;
 	height: 70vh;
-	/*background-color: white;*/
 	margin: 0;
 	padding: 0;
 }
@@ -113,6 +119,11 @@ div.col-12 {
 
 }
 
+#sendButton {
+
+	margin-top: 1rem;
+}
+
 .title {
 	
 	margin-top: .5rem;
@@ -124,4 +135,9 @@ div.col-12 {
 	width: 100vw;
 	height: 30vh;
 	background-color: #303030;
+}
+
+#signature {
+
+	margin: auto;
 }

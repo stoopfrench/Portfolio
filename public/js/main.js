@@ -15,7 +15,23 @@ $(document).ready(function(){
 		var aboutTop = $('#aboutPageContainer').offset().top;
 		$('html, body').animate({
 		  scrollTop: aboutTop,
-		}, 750);
+		}, 500);
+	}
+
+	let scrollToProjects = function(){
+
+		var projectsTop = $('#projectsPageContainer').offset().top;
+		$('html, body').animate({
+		  scrollTop: projectsTop,
+		}, 500);
+	}
+
+	let scrollToContact = function(){
+
+		var contactTop = $('#contactPageContainer').offset().top;
+		$('html, body').animate({
+		  scrollTop: contactTop,
+		}, 500);
 	}
 
 
