@@ -1,40 +1,101 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="125px" height="170px" viewBox="0 0 653 754" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
-    <title>css3-hexagon 2</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="50%" y1="100.001238%" x2="50%" y2="0.00123760845%" id="linearGradient-1">
-            <stop stop-color="#D1D3D4" stop-opacity="0" offset="38.7%"></stop>
-            <stop stop-color="#D1D3D4" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="49.9990423%" y1="100.001191%" x2="49.9990423%" y2="0.00119063211%" id="linearGradient-2">
-            <stop stop-color="#D1D3D4" stop-opacity="0" offset="38.7%"></stop>
-            <stop stop-color="#D1D3D4" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="5.85818348e-14%" y1="50.0006558%" x2="99.9994847%" y2="50.0006558%" id="linearGradient-3">
-            <stop stop-color="#E8E7E5" offset="0%"></stop>
-            <stop stop-color="#FFFFFF" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="1.34896956e-14%" y1="50%" x2="99.9995254%" y2="50%" id="linearGradient-4">
-            <stop stop-color="#E8E7E5" offset="0%"></stop>
-            <stop stop-color="#FFFFFF" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="css3-hexagon" transform="translate(4.000000, 9.000000)">
-            <polygon id="Polygon" stroke="#f2f2f2" stroke-width="13" points="318.424565 0 636.84913 183.842508 636.84913 551.527525 318.424565 735.370032 2.04152339e-13 551.527525 0 183.842508"></polygon>
-            <polygon id="Shape" points="50 98 588.584 98 588.584 636.583 50 636.583"></polygon>
-            <polygon id="Shape" fill="#2062AF" fill-rule="nonzero" points="455.5 565.454 319.29 602.13 183.078 565.454 151.646 224.929 486.936 224.929"></polygon>
-            <polygon id="Shape" fill="#3C9CD7" fill-rule="nonzero" points="319.289 252.511 319.289 572.878 319.597 572.962 429.826 543.28 455.269 252.511"></polygon>
-            <path d="M241.985,174.899 L241.985,154.631 L271.556,154.631 L271.556,132.453 L219.807,132.453 L219.807,195.137 L271.556,195.137 L271.556,174.899 L241.985,174.899 Z M324.751,154.631 L345.425,154.631 L345.425,132.453 L293.671,132.453 L293.671,154.631 C300.595,161.555 304.206,164.869 314.22,174.883 C308.366,174.883 293.671,174.904 293.671,174.903 L293.671,195.137 L345.425,195.137 L345.425,174.899 L324.751,154.631 Z M398.103,154.631 L418.776,154.631 L418.776,132.453 L367.02,132.453 L367.02,154.631 C373.944,161.555 377.557,164.869 387.571,174.883 C381.719,174.883 367.02,174.904 367.02,174.903 L367.02,195.137 L418.777,195.137 L418.777,174.899 L398.103,154.631 L398.103,154.631 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
-            <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="319.168 337.656 221.678 378.258 224.911 418.457 319.168 378.156 419.433 335.288 423.59 294.166"></polygon>
-            <polygon id="Shape" fill="url(#linearGradient-1)" fill-rule="nonzero" points="221.677 378.258 224.91 418.457 319.167 378.156 319.167 337.656"></polygon>
-            <polygon id="Shape" fill="url(#linearGradient-2)" fill-rule="nonzero" points="423.59 294.167 319.168 337.656 319.168 378.156 419.433 335.288"></polygon>
-            <polygon id="Shape" fill="url(#linearGradient-3)" fill-rule="nonzero" points="221.827 378.258 225.061 418.457 369.686 418.918 366.451 472.516 318.861 485.914 273.113 474.363 270.341 441.095 227.833 441.095 233.378 505.32 319.323 530.732 404.802 505.781 415.892 378.258"></polygon>
-            <path d="M319.168,378.258 L221.678,378.258 L224.911,418.457 L319.168,418.758 L319.168,378.258 Z M319.168,485.786 L318.706,485.915 L272.964,474.364 L270.192,441.096 L227.685,441.096 L233.229,505.321 L319.168,530.733 L319.168,485.786 Z" id="Shape" fill="#000000" fill-rule="nonzero" opacity="0.05"></path>
-            <polygon id="Shape" fill="url(#linearGradient-4)" fill-rule="nonzero" points="212.898 294.167 423.59 294.167 419.433 335.289 217.98 335.289"></polygon>
-            <polygon id="Shape" fill="#000000" fill-rule="nonzero" opacity="0.05" points="319.168 294.167 212.898 294.167 217.98 335.289 319.168 335.289"></polygon>
-        </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="102.3716mm"
+   height="144.49777mm"
+   viewBox="0 0 362.73401 511.99998"
+   id="svg3476"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="CSS3.svg">
+  <defs
+     id="defs3478" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="181.367"
+     inkscape:cy="256"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="704"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3481">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-193.633,-276.3622)">
+    <g
+       id="g3013"
+       transform="translate(119,276.3622)">
+      <polygon
+         id="polygon2989"
+         points="437.367,100.62 404.321,470.819 255.778,512 107.644,470.877 74.633,100.62 "
+         style="fill:#264de4" />
+      <polygon
+         id="polygon2991"
+         points="376.03,447.246 404.27,130.894 256,130.894 256,480.523 "
+         style="fill:#2965f1" />
+      <polygon
+         id="polygon2993"
+         points="150.31,268.217 154.38,313.627 256,313.627 256,268.217 "
+         style="fill:#ebebeb" />
+      <polygon
+         id="polygon2995"
+         points="256,176.305 255.843,176.305 142.132,176.305 146.26,221.716 256,221.716 "
+         style="fill:#ebebeb" />
+      <polygon
+         id="polygon2997"
+         points="256,433.399 256,386.153 255.801,386.206 205.227,372.55 201.994,336.333 177.419,336.333 156.409,336.333 162.771,407.634 255.791,433.457 "
+         style="fill:#ebebeb" />
+      <path
+         id="path2999"
+         d="m 160,0 55,0 0,23 -32,0 0,23 32,0 0,23 -55,0 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3001"
+         d="m 226,0 55,0 0,20 -32,0 0,4 32,0 0,46 -55,0 0,-21 32,0 0,-4 -32,0 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3003"
+         d="m 292,0 55,0 0,20 -32,0 0,4 32,0 0,46 -55,0 0,-21 32,0 0,-4 -32,0 z"
+         inkscape:connector-curvature="0" />
+      <polygon
+         id="polygon3005"
+         points="311.761,313.627 306.49,372.521 255.843,386.191 255.843,433.435 348.937,407.634 349.62,399.962 360.291,280.411 361.399,268.217 369.597,176.305 255.843,176.305 255.843,221.716 319.831,221.716 315.699,268.217 255.843,268.217 255.843,313.627 "
+         style="fill:#ffffff" />
     </g>
+  </g>
 </svg>

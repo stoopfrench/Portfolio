@@ -5,33 +5,45 @@ $(document).ready(function(){
 
 	$(window).scrollTop(0)
 
-	$('#enterButton').on('click', function(){
+	$('#chevronImage').on('click', function(){
 
-		scrollToAbout()
+		scrollToProjects()
 	})
+
+	$('#toTopImage').on('click', function(){
+
+		scrolltoTop()
+	})
+
+	let scrolltoTop = function(){
+
+		$('html, body').animate({
+			scrollTop: 0,
+			}, 500)
+	}
 
 	let scrollToAbout = function(){
 		
-		var aboutTop = $('#aboutPageContainer').offset().top;
+		var aboutTop = $('#aboutPage').offset().top;
 		$('html, body').animate({
-		  scrollTop: aboutTop,
-		}, 500);
+		 	scrollTop: aboutTop,
+			}, 500);
 	}
 
 	let scrollToProjects = function(){
 
-		var projectsTop = $('#projectsPageContainer').offset().top;
+		var projectsTop = $('#projectsPage').offset().top;
 		$('html, body').animate({
-		  scrollTop: projectsTop,
-		}, 500);
+		  	scrollTop: projectsTop,
+			}, 500);
 	}
 
 	let scrollToContact = function(){
 
-		var contactTop = $('#contactPageContainer').offset().top;
+		var contactTop = $('#contactPage').offset().top;
 		$('html, body').animate({
-		  scrollTop: contactTop,
-		}, 500);
+			scrollTop: contactTop,
+			}, 500);
 	}
 
 
