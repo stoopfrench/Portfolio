@@ -84,17 +84,28 @@ h1 {
 	padding-top: 1rem;
 }
 
+.projectsGif {
+
+	border: 3px solid black;
+	border-radius: 5px;
+}
+
 .projectsDescription {
 
 	text-align: center;
+	font-family: 'Roboto Mono', monospace;
+}
+
+.projectsLinks {
+
+	font-family: 'Roboto Mono', monospace;
 }
 
 /*Pop-Spots ------------------------------------------*/ 
 
 #popSpots {
 
-	/*background-color: #BEBEBE;*/
-	border-top: 1px solid #C5C5C5;
+	/*border-top: 1px solid #C5C5C5;*/
 	border-bottom: 1px solid #C5C5C5;
 	padding: 1.5rem;
 }
