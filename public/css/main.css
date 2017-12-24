@@ -22,7 +22,7 @@ h1 {
 	
 	position: relative;
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	background-color: #353535;
 	background-image: radial-gradient(circle at center, #353535, #1B1B1B)
 }
@@ -83,6 +83,40 @@ h1 {
 	text-align: center;
 	padding-top: 1rem;
 }
+
+.projectsDescription {
+
+	text-align: center;
+}
+
+/*Pop-Spots ------------------------------------------*/ 
+
+#popSpots {
+
+	/*background-color: #BEBEBE;*/
+	border-top: 1px solid #C5C5C5;
+	border-bottom: 1px solid #C5C5C5;
+	padding: 1.5rem;
+}
+
+#popSpotsTitle {
+
+	margin-bottom: 1.5rem;
+}
+
+#popSpotsDescription {
+
+	padding-top: 1rem;
+}
+
+#popSpotsSVG img {
+
+	width: 75px;
+}
+
+/*Dangerous Asteroids ---------------------------------*/
+
+
 
 /*CONTACT PAGE ==========================================================*/
 

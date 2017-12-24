@@ -1,4 +1,5 @@
 const express = require('express')
+const HTTP = require('http')
 
 const app = express()
 
@@ -18,3 +19,11 @@ app.listen(port, function(){
 
 	console.log('portfolio running on ', port)
 })
+
+// let httpServer = HTTP.createServer(function(req, res){
+
+// 	counter++
+
+// 	console.log('counter ', counter)
+
+// }).listen(port)
