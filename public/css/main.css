@@ -90,6 +90,7 @@ h1 {
 
 	border: 3px solid black;
 	border-radius: 5px;
+	margin-top: 1rem;
 }
 
 .projectsTitle {
@@ -102,6 +103,12 @@ h1 {
 
 	text-align: center;
 	font-family: 'Raleway', sans-serif;
+	padding-top: 1rem;
+}
+
+.projectsSVG img {
+
+	width: 75px;
 }
 
 .projectsLinks {
@@ -113,25 +120,17 @@ h1 {
 
 #popSpots {
 
-	/*border-top: 1px solid #C5C5C5;*/
 	border-bottom: 1px solid #C5C5C5;
 	padding: 1.5rem;
 }
 
-
-#popSpotsDescription {
-
-	padding-top: 1rem;
-}
-
-#popSpotsSVG img {
-
-	width: 75px;
-}
-
 /*Dangerous Asteroids ---------------------------------*/
 
+#dangerousAsteroids {
 
+	border-bottom: 1px solid #C5C5C5;
+	padding: 1.5rem;	
+}
 
 /*CONTACT PAGE ==========================================================*/
 
