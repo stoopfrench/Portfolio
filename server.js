@@ -13,14 +13,14 @@ app.get('/', function(req, res){
 
 //==================================================
 
-let port = 80
+var port = 80
 
 // app.listen(port, function(){
 
 // 	console.log('portfolio running on ', port)
 // })
 
-let httpServer = HTTP.createServer(function(req, res){
+var httpServer = HTTP.createServer(function(req, res){
 
 	counter++
 
