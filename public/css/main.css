@@ -18,6 +18,14 @@ h1 {
 	font-size: 4rem;
 }
 
+.underline {
+
+	display: block;
+	margin: auto;
+	width: 100px;
+	border-bottom: 3px solid black;
+}
+
 /*LANDING PAGE ========================================================*/
 
 #landingPage {
@@ -120,6 +128,7 @@ h1 {
 
 #popSpots {
 
+	/*border-top: 1px solid #C5C5C5;*/
 	border-bottom: 1px solid #C5C5C5;
 	padding: 1.5rem;
 }
@@ -130,6 +139,12 @@ h1 {
 
 	border-bottom: 1px solid #C5C5C5;
 	padding: 1.5rem;	
+}
+
+#vueToDo {
+
+	border-bottom: 1px solid #C5C5C5;
+	padding: 1.5rem;
 }
 
 /*CONTACT PAGE ==========================================================*/
