@@ -15,6 +15,8 @@ app.get('/', function(req, res){
 
 var port = 80
 
+var counter
+
 // app.listen(port, function(){
 
 // 	console.log('portfolio running on ', port)
