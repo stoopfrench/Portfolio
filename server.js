@@ -20,7 +20,7 @@ var port = 80
 // 	console.log('portfolio running on ', port)
 // })
 
-var httpServer = HTTP.createServer(function(req, res){
+var httpServer = HTTP.createServer(app, function(req, res){
 
 	counter++
 
