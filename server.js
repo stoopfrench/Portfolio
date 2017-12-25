@@ -13,17 +13,17 @@ app.get('/', function(req, res){
 
 //==================================================
 
-let port = 8080
+let port = 80
 
-app.listen(port, function(){
+// app.listen(port, function(){
 
-	console.log('portfolio running on ', port)
-})
+// 	console.log('portfolio running on ', port)
+// })
 
-// let httpServer = HTTP.createServer(function(req, res){
+let httpServer = HTTP.createServer(function(req, res){
 
-// 	counter++
+	counter++
 
-// 	console.log('counter ', counter)
+	console.log('counter ', counter)
 
-// }).listen(port)
+}).listen(port)
