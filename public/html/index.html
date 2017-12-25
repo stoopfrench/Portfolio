@@ -14,7 +14,7 @@
 				<div id="landingPageText">
 					<p>hello,</p>
 					<p>my name is</p>
-					<p><span>Aaron Allen</span></p>
+					<p><span>Aaron Allen<span id="blinkyDot">|</span></span></p>
 				</div>
 				<div id="chevronImage">
 					<img src="/images/chevron_down.png" alt="chevron-down">
@@ -64,6 +64,11 @@
 				<div id="dangerousAsteroids" class="container-fluid">
 					<div class="projectsTitle" style="text-align: center;"><h2>Dangerous Asteroids</h2></div>
 					<div id="projectsDisplay" class="row">
+						<div class="col-md-6" align="center">
+							<div class="projectsGif" style="width: 35vw; min-width: 20rem;">
+							 	<img class="card-img-top" src="https://media.giphy.com/media/xUNda5ybgEv6DlrmJG/giphy.gif" alt="Pop Spots">
+							</div>
+						</div>
 						<div id="dangerousAsteroidsDescription" class="col-md-6" align="center">
 					    	<p class="projectsDescription">Dangerous Asteroids uses the Nasa NEO API to find any asteroids that are within a certain distance of earth.</p>
 					    	<p class="projectsDescription">Built using jQuery, Bootstrap, Node/Express, NASA NEO API.</p>
@@ -73,11 +78,6 @@
 					    		<img src="/images/node_svg.svg" alt="Node">
 					    		<img src="/images/NASA_logo.svg" alt="Nasa" style="width: 65px;">
 					    	</div>
-						</div>
-						<div class="col-md-6" align="center">
-							<div class="projectsGif" style="width: 35vw; min-width: 20rem;">
-							 	<img class="card-img-top" src="https://media.giphy.com/media/xUNda5ybgEv6DlrmJG/giphy.gif" alt="Pop Spots">
-							</div>
 						</div>
 						<div class="container-fluid" style="margin-top: 1.5rem;">
 							<div class="projectsLinks" class="row">
@@ -94,7 +94,7 @@
 					<div id="projectsDisplay" class="row">
 						<div class="col-md-6" align="center">
 							<div class="projectsGif" style="width: 35vw; min-width: 20rem;">
-							 	<img class="card-img-top" src="/images/MongoDB_ToDO.png" alt="Pop Spots">
+							 	<img class="card-img-top" src="/images/TodoListScreenShot.png" alt="Pop Spots">
 							</div>
 						</div>
 						<div id="popSpotsDescription" class="col-md-6" align="center">
@@ -141,16 +141,15 @@
 								</div>	
 								<div class="form-group">
 									<label for="contactMessage">Message</label>
-									<textarea name="contactMessage" id="contactMessage" class="form-control" rows="5	"></textarea>
+									<textarea name="contactMessage" id="contactMessage" class="form-control" rows="5"></textarea>
 								</div>
-								<button type="submit" class="btn btn-primary">Send Message</button>					
+								<div id="sendMessageButton">
+									<button type="submit" class="btn btn-primary">Send Message</button>	
+								</div>				
 							</form>
 						</div>
 					</div>
 				</div>
-<!-- 				<div id="toTopImage">
-					<img src="/images/dbl_chev.png" alt="">
-				</div> -->
 			</div>
 		</div>	
 		<div class="row">
