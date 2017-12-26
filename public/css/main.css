@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 @import url('https://fonts.googleapis.com/css?family=Spectral+SC');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
-
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
 root: {
 
@@ -11,6 +11,7 @@ root: {
 body {
 
 	background-color: #353535;
+	position: relative;	
 }
 
 h1 {
@@ -24,7 +25,8 @@ h1 {
 	margin: auto;
 	margin-bottom: 1rem;
 	width: 100px;
-	border-bottom: 2px solid black;
+	height: 1px;
+	border-top: 2px solid #C6C6C6;
 	border-radius: 50px;
 }
 
@@ -36,7 +38,7 @@ h1 {
 	width: 100vw;
 	min-height: 100vh;
 	background-color: #353535;
-	background-image: radial-gradient(circle at center, #353535, #1B1B1B)
+	background-image: radial-gradient(circle at center, #4B4B4B, #1B1B1B);
 }
 
 #landingPageText {
@@ -61,7 +63,7 @@ h1 {
 
 /*Blinky Dot animation -------------------------------------*/
 
-#blinkyDot {
+/*#blinkyDot {
   font-weight: 100;
   font-size: 30px;
   color: orange;
@@ -116,7 +118,7 @@ h1 {
   50% {
     color: white;
   }
-}
+}*/
 
 
 #chevronImage {
@@ -148,17 +150,23 @@ h1 {
 	width: 100vw;
 	min-height: 100vh;
 	background-color: #EFEFEF;
+	background-image: radial-gradient(circle at center, white, #EFEFEF);
 }
 
 #projectsPageTitle {
 
 	text-align: center;
 	padding-top: 1rem;
+	/*background-color: #1B1B1B;*/
+	/*background-image: radial-gradient(ellipse at center, #353535, #1B1B1B);*/
+	/*color: white;*/
+	border-bottom: 1px solid black;
 }
 
 .projectsGif {
 
-	border: 3px solid black;
+	/*border: 3px solid black;*/
+	box-shadow: 0px 0px 5px black;
 	border-radius: 5px;
 	margin-top: 1rem;
 }
@@ -167,17 +175,31 @@ h1 {
 
 	margin-bottom: 1.5rem;
 	font-variant: small-caps;
-	font-weight: 800;
-	/*font-family: 'Roboto Mono', monospace;*/
+	font-family: 'Raleway', sans-serif;
+	
+	/*font-weight: 800;*/
+}
+
+.projectsTitle h2 {
+
+	font-size: 40px;
 }
 
 .projectsDescription {
 
-	text-align: center;
-	font-weight: 900;
-	font-family: 'Raleway', sans-serif;
+	text-align: left;
+	/*font-weight: 900;*/
+	/*font-family: 'Raleway', sans-serif;*/
+	font-family: 'Slabo 27px', serif;
 	padding-top: 1rem;
 	font-size: 1.25rem;
+	max-width: 500px;
+}
+
+.projectsSVG {
+
+	/*background-color: #BDBDBD;*/
+	margin-top: 2rem;
 }
 
 .projectsSVG img {
@@ -188,7 +210,17 @@ h1 {
 .projectsLinks {
 
 	font-family: 'Raleway', sans-serif;
-	font-size: 1.25rem;
+	font-size: 1rem;
+}
+
+.linksDivider {
+	
+	margin: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	width: 200px;
+	height: 1px;
+	border-top: 1px solid #C2C2C2;
 }
 
 /*Pop-Spots ------------------------------------------*/ 
@@ -196,7 +228,7 @@ h1 {
 #popSpots {
 
 	/*border-top: 1px solid #C5C5C5;*/
-	border-bottom: 2px solid #888888;
+	border-bottom: 2px solid #CDCDCD;
 	padding: 1.5rem;
 }
 
@@ -205,8 +237,11 @@ h1 {
 #dangerousAsteroids {
 
 	/*border-top: 1px solid grey;*/
-	border-bottom: 2px solid #888888;
-	padding: 1.5rem;	
+	border-bottom: 2px solid #CDCDCD;
+	padding: 1.5rem;
+	background-color: #BEBEBE;
+	background-image: radial-gradient(circle at center, #EFEFEF, #BEBEBE);	
+	/*color: white;*/
 }
 
 /*Vue To-Do ------------------------------------------*/
