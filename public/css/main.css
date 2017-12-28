@@ -36,7 +36,7 @@ h1 {
 	
 	position: relative;
 	width: 100vw;
-	min-height: 100vh;
+	height: 100vh;
 	background-color: #353535;
 	background-image: radial-gradient(circle at center, #4B4B4B, #1B1B1B);
 }
@@ -61,66 +61,6 @@ h1 {
 	font-size: 5rem;
 }
 
-/*Blinky Dot animation -------------------------------------*/
-
-/*#blinkyDot {
-  font-weight: 100;
-  font-size: 30px;
-  color: orange;
-  margin: 0;
-  -webkit-animation: 1s blink step-end infinite;
-  -moz-animation: 1s blink step-end infinite;
-  -ms-animation: 1s blink step-end infinite;
-  -o-animation: 1s blink step-end infinite;
-  animation: 1s blink step-end infinite;
-}
-
-@keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-moz-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-webkit-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-ms-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}
-
-@-o-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: white;
-  }
-}*/
-
-
 #chevronImage {
 
 	position: absolute;
@@ -128,7 +68,6 @@ h1 {
 	left: 50%;
 	transform: translateX(-50%);
 	opacity: 0.3;
-
 }
 
 #chevronImage img {
@@ -157,10 +96,8 @@ h1 {
 
 	text-align: center;
 	padding-top: 1rem;
-	/*background-color: #1B1B1B;*/
-	/*background-image: radial-gradient(ellipse at center, #353535, #1B1B1B);*/
-	/*color: white;*/
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid #C6C6C6;
+	margin: auto;
 }
 
 .projectsGif {
@@ -176,8 +113,6 @@ h1 {
 	margin-bottom: 1.5rem;
 	font-variant: small-caps;
 	font-family: 'Raleway', sans-serif;
-	
-	/*font-weight: 800;*/
 }
 
 .projectsTitle h2 {
@@ -216,11 +151,11 @@ h1 {
 .linksDivider {
 	
 	margin: auto;
-	margin-top: 1rem;
+	margin-top: 1.5rem;
 	margin-bottom: 1rem;
 	width: 200px;
 	height: 1px;
-	border-top: 1px solid #C2C2C2;
+	border-top: 1px solid #C6C6C6;
 }
 
 /*Pop-Spots ------------------------------------------*/ 
@@ -236,20 +171,16 @@ h1 {
 
 #dangerousAsteroids {
 
-	/*border-top: 1px solid grey;*/
 	border-bottom: 2px solid #CDCDCD;
 	padding: 1.5rem;
 	background-color: #BEBEBE;
-	background-image: radial-gradient(circle at center, #EFEFEF, #BEBEBE);	
-	/*color: white;*/
+	background-image: radial-gradient(circle at center, #F5F5F5, #D9D9D9);	
 }
 
 /*Vue To-Do ------------------------------------------*/
 
 #vueToDo {
 
-	/*border-top: 1px solid grey;*/
-	/*border-bottom: 2px solid #888888;*/
 	padding: 1.5rem;
 }
 
@@ -267,6 +198,9 @@ h1 {
 
 	text-align: center;
 	padding-top: 1rem;
+	border-bottom: 2px solid #949494;
+	margin: auto;
+	margin-bottom: 1rem;
 }
 
 #contactForm {

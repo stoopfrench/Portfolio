@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="/css/main.css">
 	<title>Aaron Allen | Web Developer</title>
 </head>
@@ -24,14 +25,14 @@
 		<div class="row">
 			<div id="projectsPage" class="col-lg-12">
 				<div class="row">
-					<div id="projectsPageTitle" class="col-12">
+					<div id="projectsPageTitle" class="col-8">
 						<h1>Projects</h1>
 					</div>
 				</div>
 				<!-- Pop-Spots -->
 				<div id="popSpots" class="container-fluid">
 					<div class="projectsTitle" style="text-align: center;"><h2>Pop Spots</h2></div>
-					<div class="underline"></div>
+					<!-- <div class="underline"></div> -->
 					<div id="projectsDisplay" class="row">
 						<div class="col-md-6" align="center">
 							<div class="projectsGif" style="width: 35vw; min-width: 20rem;">
@@ -40,7 +41,7 @@
 						</div>
 						<div id="popSpotsDescription" class="col-md-6" align="center">
 					    	<p class="projectsDescription">Pop Spots is an app that allows a user to find the most popular spots in a City, Town, Neighborhood, etc.</p>
-					    	<p class="projectsDescription">Built using jQuery, Bootstrap, Node/Express, Facebook Places Graph API, Google Places API and Google Maps.</p>
+					    	<p class="projectsDescription">Built with jQuery, Bootstrap, Node/Express, Facebook Places Graph API, Google Places API and Google Maps.</p>
 					    	<div class="projectsSVG">
 					    		<img src="/images/JQuery_logo_text.svg" alt="jQuery">
 					    		<img src="/images/Boostrap_svg.svg" alt="Bootstrap" style="width: 50px;">
@@ -64,7 +65,7 @@
 				<!-- Dangerous Asteroids -->
 				<div id="dangerousAsteroids" class="container-fluid">
 					<div class="projectsTitle" style="text-align: center;"><h2>Dangerous Asteroids</h2></div>
-					<div class="underline"></div>
+					<!-- <div class="underline"></div> -->
 					<div id="projectsDisplay" class="row">
 						<div class="col-md-6" align="center">
 							<div class="projectsGif" style="width: 35vw; min-width: 20rem;">
@@ -73,7 +74,7 @@
 						</div>
 						<div id="dangerousAsteroidsDescription" class="col-md-6" align="center">
 					    	<p class="projectsDescription">Dangerous Asteroids uses the Nasa NEO API to find any asteroids that are within a certain distance of earth.</p>
-					    	<p class="projectsDescription">Built using jQuery, Bootstrap, Node/Express, NASA NEO API.</p>
+					    	<p class="projectsDescription">Built with jQuery, Bootstrap, Node/Express, NASA NEO API and Sentry API.</p>
 					    	<div class="projectsSVG">
 					    		<img src="/images/JQuery_logo_text.svg" alt="jQuery">
 					    		<img src="/images/Boostrap_svg.svg" alt="Bootstrap" style="width: 50px;">
@@ -94,7 +95,7 @@
 				<!-- To Do List -->
 				<div id="vueToDo" class="container-fluid">
 					<div class="projectsTitle" style="text-align: center;"><h2>Vue To-Do</h2></div>
-					<div class="underline"></div>
+					<!-- <div class="underline"></div> -->
 					<div id="projectsDisplay" class="row">
 						<div class="col-md-6" align="center">
 							<div class="projectsGif" style="width: 35vw; min-width: 20rem;">
@@ -103,7 +104,7 @@
 						</div>
 						<div id="popSpotsDescription" class="col-md-6" align="center">
 					    	<p class="projectsDescription">Simple To-Do List made in Vue.  Tasks that the user enters are stored on a MongoDB database for later retrieval.</p>
-					    	<p class="projectsDescription">Built using Vue, Bootstrap, Node/Express, MongoDB, and Sessions.</p>
+					    	<p class="projectsDescription">Built with Vue, Bootstrap, Node/Express, MongoDB.</p>
 					    	<div class="projectsSVG">
 					    		<img src="/images/vue_svg.svg" alt="Vue" style="width: 65px;">
 					    		<img src="/images/Boostrap_svg.svg" alt="Bootstrap" style="width: 50px;">
@@ -127,15 +128,15 @@
 		<div class="row">
 			<div id="contactPage" class="col-lg-12">
 				<div class="row">
-					<div id="contactPageTitle" class="col-12">
+					<div id="contactPageTitle" class="col-8">
 						<h1>Contact</h1>
 					</div>
-					<div class="underline"></div>
+					<!-- <div class="underline"></div> -->
 				</div>
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-							<form id="contactForm" action="">
+							<form id="contactForm" onsubmit="event.preventDefault()">
 								<div class="form-group">
 									<label for="contactName">Name</label>
 									<input id="contactName" type="text" class="form-control">
