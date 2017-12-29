@@ -17,22 +17,32 @@ app.get('/', function(req, res){
 
 try {
     var httpsConfig = {
+
         key: fs.readFileSync('/etc/letsencrypt/live/iamaaronallen.com/privkey.pem'),
         cert: fs.readFileSync('/etc/letsencrypt/live/iamaaronallen.com/fullchain.pem'),
     }
 
     var httpsServer = HTTPS.createServer(httpsConfig, app)
+    
     httpsServer.listen(443)
+    
     var httpApp = express()
+    
     httpApp.use(function(req, res, next){
+        
         res.redirect('https://iamaaronallen.com' + req.url)
     })
+    
     httpApp.listen(80)
 }
 catch(e){
+    
     console.log(e)
+    
     console.log('could not start HTTPS server')
+    
     var httpServer = HTTP.createServer(app)
+   
     httpServer.listen(80)
 }
 
