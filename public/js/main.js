@@ -1,49 +1,48 @@
+$(document).ready(function() {
 
-$(document).ready(function(){
+    console.log('DOCUMENT LOADED')
 
-	console.log('DOCUMENT LOADED')
+    $(window).scrollTop(0)
 
-	$(window).scrollTop(0)
+    $('#chevronImage').on('click', function() {
 
-	$('#chevronImage').on('click', function(){
+        scrollToProjects()
+    })
 
-		scrollToProjects()
-	})
+    $('#toTopImage').on('click', function() {
 
-	$('#toTopImage').on('click', function(){
+        scrolltoTop()
+    })
 
-		scrolltoTop()
-	})
+    let scrolltoTop = function() {
 
-	let scrolltoTop = function(){
+        $('html, body').animate({
+            scrollTop: 0,
+        }, 500)
+    }
 
-		$('html, body').animate({
-			scrollTop: 0,
-			}, 500)
-	}
+    let scrollToAbout = function() {
 
-	let scrollToAbout = function(){
-		
-		var aboutTop = $('#aboutPage').offset().top;
-		$('html, body').animate({
-		 	scrollTop: aboutTop,
-			}, 500);
-	}
+        var aboutTop = $('#aboutPage').offset().top;
+        $('html, body').animate({
+            scrollTop: aboutTop,
+        }, 500);
+    }
 
-	let scrollToProjects = function(){
+    let scrollToProjects = function() {
 
-		var projectsTop = $('#projectsPage').offset().top;
-		$('html, body').animate({
-		  	scrollTop: projectsTop,
-			}, 500);
-	}
+        var projectsTop = $('#projectsPage').offset().top;
+        $('html, body').animate({
+            scrollTop: projectsTop,
+        }, 500);
+    }
 
-	let scrollToContact = function(){
+    let scrollToContact = function() {
 
-		var contactTop = $('#contactPage').offset().top;
-		$('html, body').animate({
-			scrollTop: contactTop,
-			}, 500);
-	}
+        var contactTop = $('#contactPage').offset().top;
+        $('html, body').animate({
+            scrollTop: contactTop,
+        }, 500);
+    }
 
 })
