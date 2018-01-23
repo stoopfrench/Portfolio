@@ -49,7 +49,7 @@ if (playerChoice == 'Rock') {
 	else {
 
 		var image = document.getElementById("userImg");
-		image.src = "images/scissors_blue.jpg";
+		image.src = "images/Scissors_blue.jpg";
 	}
 
 	playerSelectionElement = document.getElementById(playerChoice);
@@ -99,7 +99,7 @@ else {
 	else {
 
 		var image = document.getElementById("compImg");
-		image.src = "images/scissors_blue.jpg";
+		image.src = "images/Scissors_blue.jpg";
 	}
 
 
