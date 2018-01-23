@@ -1,0 +1,221 @@
+
+body {
+
+	text-align: center
+}
+
+#calculator {
+
+	background-color: #ABAAAC;
+	width: 225px;
+	height: 360px;
+	padding: 20px;
+	padding-top: 10px;
+	border: 6px #D1CFD2 solid;
+	border-radius: 5px;
+	margin: auto;
+	margin-top: 6px;
+	background-image: radial-gradient(circle at center, #4B4B4E, #212223);
+	box-shadow: 0px 0px 5px 5px;
+}
+
+#screen {
+
+	width: 220px;
+	height: 40px;
+	margin: 20px;
+	margin-left: -2px;
+	border: 3px black solid;
+	border-radius: 5px;
+	text-align: right;
+	font: 22px bold;
+	color: #072A06;
+	box-shadow: 0px 0px 5px 2px black;
+	background-color: #99C898;
+	background-image: radial-gradient(circle at center, #99C898, #709974); 
+}
+
+.equalKey {
+
+	width: 91px;
+	height: 40px;
+	margin-right: 3px;
+	background: #1A1A1A;
+}
+
+.clearKey {
+
+	width: 40px;
+	height: 40px;
+	background: #E63533;
+	background-image: radial-gradient(circle at center, #A62527, #7E1F1F);
+}
+
+.operatorKey {
+
+	background: #1A1A1A;
+}
+
+.decKey {
+
+	background: #939C9F;
+	background-image: radial-gradient(circle at center, #6F7074, #939C9F);
+}
+
+button {
+
+	width: 40px;
+	height: 40px;
+	margin: 2px;
+	font-size: 20px;
+	box-shadow: 0px 0px 3px 2px black;
+	border-radius: 1px;
+	outline: none;
+	background: #939C9F;
+	background-image: radial-gradient(circle at center, #616265, #939C9F);
+	color: #E4E3EB;
+	cursor: pointer;
+}
+
+#historyList {
+
+	background: #4B4B4E;
+	width: 225px;
+	height: 125px;
+	margin: auto;
+	padding-bottom: 20px;
+	text-align: left;
+	padding: 20px;
+	padding-top: 10px;
+	border: 6px #D1CFD2 solid;
+	font-size: 16px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px 5px black;
+	background-image: radial-gradient(circle at center, #4B4B4E, #212223);
+	color: #072A06;
+	display: none;
+}
+
+#clearHistoryButton {
+
+	width: 45px;
+	height: 20px;
+	margin-left: 190px;
+	font-size: 10px;
+	background: #E63533;
+	background-image: radial-gradient(circle at center, #A62527, #7E1F1F);
+	border-radius: 3px;
+	opacity: 0.3;
+}
+
+#toggleHistoryButton {
+
+	width: 60px;
+	height: 20px;
+	font-size: 10px;
+	background: black;
+	border-radius: 3px;
+	color: grey;
+}
+
+ul {
+
+	width: width: 200px;
+	height: 75px;
+	background-color: #E0DEE2;
+	background-image: radial-gradient(circle at center, #99C898, #709974);
+	overflow-y: auto;
+	text-align: left;
+	border: 2px black solid;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px 2px black;
+	text-align: right;
+	padding: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#toggleOptionsButton {
+
+	width: 60px;
+	height: 20px;
+	font-size: 10px;
+	background: black;
+	border-radius: 3px;
+	color: grey;
+	margin: 15px;
+}
+
+#moreOptions {
+
+	background: #4B4B4E;
+	width: 225px;
+	height: 125px;
+	margin: auto;
+	margin-top: 5px;
+	padding-bottom: 20px;
+	text-align: center;
+	padding: 20px;
+	padding-top: 20px;
+	border: 6px #D1CFD2 solid;
+	font-size: 16px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px 5px black;
+	background-image: radial-gradient(circle at center, #4B4B4E, #212223);
+	color: #072A06;
+	display: none;
+}
+
+.moreOptionsKey {
+	
+	background: #B9BA08;
+	background-image: radial-gradient(circle at center, #547B13, #4EC100);
+	text-align: center;
+	font-size: 16px;
+}
+
+.randomKey {
+
+	border-radius: 3px;
+	color: #E4E3EB;
+	font-size: 10px;
+	padding-left: 4px; 
+	font-weight: bold;
+	margin-top: 5px;
+	background: #939C9F;
+	background-image: radial-gradient(circle at center, #7D7E82, #939C9F);
+}
+
+.piKey {
+
+	background: #B9BA08;
+	background-image: radial-gradient(circle at center, #8B4F1E, #C37516);
+	text-align: center;
+	font-size: 16px;
+}
+
+#randomNumberBase {
+
+	width: 30px;
+	margin: 3px;
+	text-align: center;
+	outline: none;
+
+
+}
+
+span {
+
+	color: white;
+	font-variant: small-caps;
+}
+
+
+
+
+
+
+
+
+  	
+

@@ -1,0 +1,197 @@
+
+* {
+
+    font-family: "Arial Black", "Arial", sans-serif;
+
+}
+
+h1, h2, h3 {
+
+    box-shadow: 0px 0px 15px;
+}
+
+body {
+    border: 15px black solid;
+    border-radius: 20px; 
+    width: 55%;
+    margin: auto;
+}
+
+#game {
+    
+    background-color: green;
+    text-align: center;
+    color: black;
+    padding: 8px;
+    background-image: radial-gradient(circle at center, green, #075008);
+}
+
+#takeYourPick {
+
+    background-color: #7CCF58;
+    border: 3px black solid;
+    border-radius: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px
+}
+
+#playButton {
+
+    background-color: gold;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 1px 1px 15px #B7B6B8;
+    opacity: 0.3;
+    border: 5px black solid;
+    box-shadow: none;
+    transition: opacity 50ms ease-in-out 0ms;
+
+}
+
+#score {
+    
+    margin: auto;
+    width: 30%;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    background-color: #7CCF58;
+    border: 3px black solid;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px;
+    text-align: center;
+}
+
+#userPlay {
+
+    float: left;
+    width: 33%;
+    height: 230px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    background-color: #7CCF58;
+    border: 3px black solid;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px;
+    text-align: center;
+    font-variant: small-caps;
+}
+
+#computerPlay {
+    
+    float: right;
+    width: 33%;
+    height: 230px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    background-color: #7CCF58;
+    border: 3px black solid;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px;
+    text-align: center;
+    font-variant: small-caps;
+}
+
+#resetScoreBtn {
+
+    margin-bottom: 20px;
+    background-color: #00A500;
+}
+
+
+#Rock:hover {
+
+    transform: scale(1.7);
+}
+
+#Paper:hover {
+
+    transform: scale(1.7);
+}
+
+#Scissors:hover {
+
+    transform: scale(1.7);
+}
+
+
+h1 {
+    
+    background-color: #7CCF58;
+    border: 3px black solid;
+    border-radius: 20px;
+    font-variant: small-caps;
+    font-size: 35px;
+    width: 75%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+h4 {
+
+    margin-bottom: 20px
+}
+
+
+button {
+    
+    border: 3px black solid;
+    border-radius: 10px;
+    background-color: #7CCF58;
+    outline: none;
+    transition: all 50ms ease-in-out 0ms;
+    cursor: pointer;
+}
+
+button img {
+    
+    width: 75px;
+    height: 75px;
+    margin: 5px;
+    margin-top: 8px;
+    border: 2px black solid;
+    border-radius: 3px;
+    box-shadow: 0px 0px 6px black; 
+}
+
+#gameResultImg img {
+
+    width: 115px;
+    height: 115px;
+}
+
+#compImg {
+
+	border: 5px black solid;
+    border-radius: 5px;
+	transition: all 0ms linear 500ms;
+}
+
+#userImg {
+
+    border: 5px black solid;
+    border-radius: 5px;
+	transition: all 0ms linear 500ms;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

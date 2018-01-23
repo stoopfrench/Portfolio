@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Calculator</title>
+		<link rel="stylesheet" type="text/css" href="/css/calc.css">
+	</head>
+	<body>
+		<div id="historyList">
+					<button type="button" id="clearHistoryButton" onclick="clearHistory()">CLEAR</button>
+				<ul id="history">
+					</ul>
+				</div>
+		<div id="calculator">
+			<button type="button" id="toggleHistoryButton" onclick="toggleHistory()">HISTORY</button>
+			<form>
+				<input type="text" id="screen" disabled>
+					<br>
+				<button type="button" value="AC" class="clearKey" onclick="printToScreen('AC')">AC</button>
+				<button type="button" value="&#8592;" class="clearKey" onclick="backspace()">&#8592;</button>
+				<button type="button" value="&#177;" class="operatorKey" onclick="plusMinus()" >&#177;</button>
+				<button type="button" value="/" class="operatorKey" onclick="printToScreen('/')">/</button>
+					<br>
+				<button type="button" value="7" class="keys" onclick="printToScreen('7')">7</button>
+				<button type="button" value="8" class="keys" onclick="printToScreen('8')">8</button>
+				<button type="button" value="9" class="keys" onclick="printToScreen('9')">9</button>
+				<button type="button" value="*" class="operatorKey" onclick="printToScreen('*')">*</button>
+					<br>
+				<button type="button" value="4" class="keys" onclick="printToScreen('4')">4</button>
+				<button type="button" value="5" class="keys" onclick="printToScreen('5')">5</button>
+				<button type="button" value="6" class="keys" onclick="printToScreen('6')">6</button>
+				<button type="button" value="-" class="operatorKey" onclick="printToScreen('-')">-</button>
+					<br>
+				<button type="button" value="1" class="keys" onclick="printToScreen('1')">1</button>
+				<button type="button" value="2" class="keys" onclick="printToScreen('2')">2</button>
+				<button type="button" value="3" class="keys" onclick="printToScreen('3')">3</button>
+				<button type="button" value="+" class="operatorKey" onclick="printToScreen('+')">+</button>
+					<br>
+				<button type="button" value="0" class="keys" onclick="printToScreen('0')">0</button>
+				<button type="button" value="." class="decKey" onclick="printToScreen('.')">.</button>
+				<button type="button" value="=" class="equalKey" onclick="equalKey()">=</button>
+			</form>
+			<button id="toggleOptionsButton" onclick="toggleMoreOptions()">MORE</button>
+				</div>
+				
+				<div id="moreOptions">
+					<form>
+				<button type="button" value="&#960;" class="piKey" onclick="pi()">&#960;</button>
+				<button type="button" value="&#8731;" class="moreOptionsKey" onclick="sin()">sin</button>
+				<button type="button" value="9" class="moreOptionsKey" onclick="cos()">cos</button>
+				<button type="button" value="*" class="moreOptionsKey" onclick="tan()">tan</button>
+					<br>
+				<button type="button" value="x&sup2;" class="operatorKey" onclick="squared()">x&sup2;</button>
+				<button type="button" value="x&sup3;" class="operatorKey" onclick="cubed()">x&sup3;</button>
+				<button type="button" value="&#8730;" class="operatorKey" onclick="squareRoot()">&#8730;</button>
+				<button type="button" value="&#8731;" class="operatorKey" onclick="cubeRoot()">&#8731;</button>
+					<br>
+				<button type="button" value="3" class="randomKey" onclick="randomNumber()">RAND</button>
+				<span id="randomText">between 0 and:</span>
+				<input type="text" onfocus="this.select();" id="randomNumberBase" value="1" maxlength="4">
+					</form>
+				</div>
+	<script type="text/javascript" src="/js/calc.js"></script>
+	
+</body>
+
+</html>

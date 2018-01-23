@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Rock Paper Scissors</title>
+		<link rel="stylesheet" type="text/css" href="/css/RPS.css">
+	</head>
+		<body>
+			<div id="game">
+				<h1>Rock, Paper or Scissors?</h1>
+					<br>
+					<br>
+				<span id="takeYourPick">Click your pick:</span>
+					<br>
+					<br>
+					
+				<div>
+					<button onclick="chooseOption('Rock')" id="Rock">
+						<img src="/images/rock_blue.jpg" id="rockImg" alt="Rock">
+					</button>
+					<button onclick="chooseOption('Paper')" id="Paper">
+						<img src="/images/paper_blue.jpg" id="paperImg" alt="Paper">
+					</button>
+					<button onclick="chooseOption('Scissors')" id="Scissors">
+						<img src="/images/scissors_blue.jpg" id="scissorsImg" alt="Scissors">
+					</button>
+							<br>
+							<br>
+					<button id="playButton" onclick="playGame()">Play Game</button>
+				</div>
+							 <br>
+			
+			<div id="gameResultImg">
+				 <span><div id="userPlay">
+				 	<h4>You:</h4>
+				 	<img id="userImg" src="/images/grey_blank.jpg">
+				</div></span>
+				
+				<span><div id="computerPlay">
+					<h4>Computer:</h4>
+					<img id="compImg" src="/images/grey_blank.jpg">
+					
+				</div></span>
+				
+				 <span><div id="score">
+		  			<p id="playerScore">WINS:</p>
+		  			<p id="compScore">LOSES:</p>
+		  			<p id="drawScore">DRAWS:</p>
+		  				<button id="resetScoreBtn" onclick="resetScore()">Reset Score</button>
+				</div></span>
+			</div>
+				
+		 					<br>
+			</div>
+		<script type="text/javascript" src="/js/RPS.js"></script>
+		</body>
+</html>

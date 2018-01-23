@@ -10,16 +10,14 @@ const app = express()
 
 app.use(express.static('./public'))
 
-// Portfolio -=-=-=-=-=-=-=-=-=-=-=-=-
+// Portfolio -----------------------------------------------------
 
 app.get('/', function(req, res) {
 
     res.sendFile('./public/html/index.html', { root: './' })
 })
 
-// Dangerous Asteroids -=-=-=-=-=-=-=-
-
-var key = secrets.nasaKey
+// Dangerous Asteroids -------------------------------------------
 
 app.get('/asteroids', function(req, res) {
 
@@ -36,9 +34,28 @@ app.get('/asteroids/top-25', function(req, res) {
     console.log('sent sentry.html')
 })
 
+// Rock, Paper, Scissors -----------------------------------------
+
+app.get('/rps', function(req, res) {
+
+    res.sendFile('./public/html/rps.html', {root: './'})
+
+    console.log('sent rps.html')
+})
+
+// Calculator ----------------------------------------------------
+
+app.get('/calc', function(req, res) {
+
+    res.sendFile('./public/html/calc.html', {root: './'})
+
+    console.log('sent calc.html')
+})
+
 
 // NEO API ==============================================================================
 
+var key = secrets.nasaKey
 
 app.get('/search', function(req, res) {
 
