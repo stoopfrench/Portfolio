@@ -1,273 +1,282 @@
+
 $(document).ready(function() {
 
-    $('#rangeSearch').hide()
+	$('#rangeSearch').hide()
 
-    $('#dayRadio').on('click', function() {
+	$('#dayRadio').on('click', function() {
 
-        resetHTML()
+		resetHTML()
 
-        $('#search').show()
-        $('#rangeSearch').hide()
+		$('#search').show()
+		$('#rangeSearch').hide()
 
-        $('#dateInput')[0].value = ''
+		$('#dateInput')[0].value = ''
 
-        $('#dateInput').focus()
-    })
+		$('#dateInput').focus()
+	})
 
-    $('#weekRadio').on('click', function() {
+	$('#weekRadio').on('click', function() {
+		
+		resetHTML()
 
-        resetHTML()
+		$('#search').hide()
+		$('#rangeSearch').show()
 
-        $('#search').hide()
-        $('#rangeSearch').show()
+		$('#startDate')[0].value = ''
+		$('#endDate')[0].value = ''
 
-        $('#startDate')[0].value = ''
-        $('#endDate')[0].value = ''
+		$('#startDate').focus()
+	})
 
-        $('#startDate').focus()
-    })
+	// GET TODAY ====================================================================================================================================================================================
 
-    // GET TODAY ====================================================================================================================================================================================
+		
+	$('#showToday').on('click', function(){
 
+		resetHTML()
 
-    $('#showToday').on('click', function() {
+		var today = new Date()
 
-        resetHTML()
+		var formatToday = new Date(+today - today.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
 
-        var today = new Date()
+		var splitDate = formatToday.split('-')
+		splitDate.push(splitDate.shift())
+		var formattedDate = splitDate.join('/')
 
-        var formatToday = new Date(+today - today.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
+		$('#dateInput')[0].value = formatToday
 
-        var splitDate = formatToday.split('-')
-        splitDate.push(splitDate.shift())
-        var formattedDate = splitDate.join('/')
 
-        $('#dateInput')[0].value = formatToday
 
 
+	// Today GET request
 
+			$.get(`/search?start_date=${formatToday}`, function(body, status) {
 
-        // Today GET request
+				body = JSON.parse(body)
 
-        $.get(`/search?start_date=${formatToday}`, function(body, status) {
+				var hazardousAsteroids = []
 
-            body = JSON.parse(body)
+				if (body.near_earth_objects[formatToday]) {
+				
+					for(var asteroid of body.near_earth_objects[formatToday]) {
+						
+		// Declare variables and push into the hazardousAsteroids array
 
-            var hazardousAsteroids = []
+						var name = asteroid.name
 
-            if (body.near_earth_objects[formatToday]) {
+						var diameter = Math.floor(Number(asteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
+					
+						var velocity = Math.floor(Number(asteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
 
-                for (var asteroid of body.near_earth_objects[formatToday]) {
+						var distanceFromEarth = Math.floor(Number(asteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
 
-                    // Declare variables and push into the hazardousAsteroids array
+						var link = asteroid.nasa_jpl_url
 
-                    var name = asteroid.name
+						
+						if(asteroid.is_potentially_hazardous_asteroid) {
 
-                    var diameter = Math.floor(Number(asteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
+							// console.log(asteroid)
 
-                    var velocity = Math.floor(Number(asteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
+							var id = asteroid.neo_reference_id
 
-                    var distanceFromEarth = Math.floor(Number(asteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
+							// $.get(`/sentry?spk=${id}`, function(body, status) {
 
-                    var link = asteroid.nasa_jpl_url
+							// 	body = JSON.parse(body)
 
+							// 	console.log(body)
+							// })
 
-                    if (asteroid.is_potentially_hazardous_asteroid) {
+							hazardousAsteroids.push(asteroid)
 
-                        // console.log(asteroid)
+						
+		// Print results to html page
 
-                        var id = asteroid.neo_reference_id
-
-                        // $.get(`/sentry?spk=${id}`, function(body, status) {
-
-                        // 	body = JSON.parse(body)
-
-                        // 	console.log(body)
-                        // })
-
-                        hazardousAsteroids.push(asteroid)
-
-
-                        // Print results to html page
-
-                        $('#entry').append(
-                            `
-							<div id='listDiv'>
-							<h4 id='listName'><a href="${link}" target="_blank">${name}<a></h4>
-							 <p id='listDiameter'>${'Estimated Diameter: ' + diameter + ' ft'}</p>
-							 <p id='listVelocity'>${'Velocity: ' + velocity + ' mph'}</p>
-							 <p id='listDistance'>${'Distance from Earth: ' + distanceFromEarth + ' miles'}</p>
-							 </div>
-							 `
-                        )
-
-                    }
-
-                }
-
-                // Print to html
-                $('#entryInfo').append(
-
-                    `<h3 class="dateInfo">${'Date: ' + formattedDate}</h3>`
-
-                )
-
-
-                if (hazardousAsteroids.length === 0) {
-
-                    $('#entryInfo').append(
-
-                        `<h3>No Dangerous Asteroids.</h3>`
-                    )
-                } else {
-
-                    $('#entryInfo').append(
-
-                        `<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
-
-                    )
-                }
-                // Print Summary
-
-                $('#summary').append(
-                    `<div id="summaryAccordion" data-children=".item">
-						  <div class="item">
-						    <a data-toggle="collapse" data-parent="#summaryAccordion" href="#summaryAccordion1" aria-expanded="true" aria-controls="summaryAccordion1">
-						      Summary
-						    </a>
-						    <div id="summaryAccordion1" class="collapse show" role="tabpanel">
-						      <ul id="summaryList" class="mb-3">
-						      <li>${'Date: ' + formattedDate}</li>
-						      <li>${'Total Asteroids: ' + body.near_earth_objects[formatToday].length}</li>
-						      <li>${'Dangerous Asteroids: ' + hazardousAsteroids.length}</li>
-						      </ul>
-						    </div>
-						  </div>
-					</div>
-					`
-                )
-            } else {
-
-                $('#message').append(`<h2>Invalid date format</h3>`)
-            }
-
-        }, scrollToResults())
-
-    })
-
-
-    // SINGLE-DATE ================================================================================================================================================================================
-
-
-    $('#search').on('submit', function(event) {
-
-        resetHTML()
-
-
-        event.preventDefault()
-
-        var userDate = $('#dateInput').val()
-
-
-        // Reformat the Date to US time format
-
-        var splitDate = userDate.split('-')
-        splitDate.push(splitDate.shift())
-        var formattedDate = splitDate.join('/')
-
-
-        // Error Handling for single day form
-
-        if (userDate === '') {
-
-            $('#message').append(`<h2>Please enter a valid date.</h2>`)
-        } else {
-
-
-            // Single-day GET request
-
-            $.get(`/search?start_date=${userDate}`, function(body, status) {
-
-                body = JSON.parse(body)
-
-                var hazardousAsteroids = []
-
-                if (body.near_earth_objects[userDate]) {
-
-                    for (var asteroid of body.near_earth_objects[userDate]) {
-
-
-                        // Declare variables and push into the hazardousAsteroids array
-
-
-                        var name = asteroid.name
-
-                        var diameter = Math.floor(Number(asteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
-
-                        var velocity = Math.floor(Number(asteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
-
-                        var distanceFromEarth = Math.floor(Number(asteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
-
-                        var link = asteroid.nasa_jpl_url
-
-
-                        if (asteroid.is_potentially_hazardous_asteroid) {
-
-                            var id = asteroid.neo_reference_id
-
-                            // $.get(`/sentry?spk=${id}`, function(body, status) {
-
-                            // 	body = JSON.parse(body)
-
-                            // 	console.log(body)
-                            // })							
-
-                            hazardousAsteroids.push(asteroid)
-
-                            // Print results to html page
-
-                            $('#entry').append(
-                                `
+							$('#entry').append (
+								`
 								<div id='listDiv'>
-									<h4 id='listName'><a href="${link}" target="_blank">${name}<a></h4>
-									 <p id='listDiameter'>${'Estimated Diameter: ' + diameter + ' ft'}</p>
-									 <p id='listVelocity'>${'Velocity: ' + velocity + ' mph'}</p>
-									 <p id='listDistance'>${'Distance from Earth: ' + distanceFromEarth + ' miles'}</p>
+								<h4 id='listName'><a href="${link}" target="_blank">${name}<a></h4>
+								 <p id='listDiameter'>${'Estimated Diameter: ' + diameter + ' ft'}</p>
+								 <p id='listVelocity'>${'Velocity: ' + velocity + ' mph'}</p>
+								 <p id='listDistance'>${'Distance from Earth: ' + distanceFromEarth + ' miles'}</p>
 								 </div>
 								 `
-                            )
+								)
 
-                        }
+						}		
 
-                    }
+					}
+						
+	// Print to html
+							$('#entryInfo').append (
+								
+								`<h3 class="dateInfo">${'Date: ' + formattedDate}</h3>`
+		
+								)
+				
+							
+							if (hazardousAsteroids.length === 0) {
 
-                    // Print to html
-                    $('#entryInfo').append(
+								$('#entryInfo').append (	
 
-                        `<h3 class="dateInfo">${'Date: ' + formattedDate}</h3>`
+									`<h3>No Dangerous Asteroids.</h3>`
+									)
+								}
 
-                    )
+								else {
+
+									$('#entryInfo').append (
+										
+										`<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
+										
+										)
+								}
+	// Print Summary
+
+							$('#summary').append (
+								`<div id="summaryAccordion" data-children=".item">
+								  <div class="item">
+								    <a data-toggle="collapse" data-parent="#summaryAccordion" href="#summaryAccordion1" aria-expanded="true" aria-controls="summaryAccordion1">
+								      Summary
+								    </a>
+								    <div id="summaryAccordion1" class="collapse show" role="tabpanel">
+								      <ul id="summaryList" class="mb-3">
+								      <li>${'Date: ' + formattedDate}</li>
+								      <li>${'Total Asteroids: ' + body.near_earth_objects[formatToday].length}</li>
+								      <li>${'Dangerous Asteroids: ' + hazardousAsteroids.length}</li>
+								      </ul>
+								    </div>
+								  </div>
+								</div>
+								`
+								)
+						}
+
+						else {
+
+							$('#message').append(`<h2>Invalid date format</h3>`)
+						}
+				scrollToResults()
+			})
+						
+	})
+									
+
+// SINGLE-DATE ================================================================================================================================================================================
+
+		
+		$('#search').on('submit', function(event) {
+			
+			resetHTML()
+
+			
+			event.preventDefault()
+			
+			var userDate = $('#dateInput').val()
 
 
-                    if (hazardousAsteroids.length === 0) {
+// Reformat the Date to US time format
+			
+			var splitDate = userDate.split('-')
+			splitDate.push(splitDate.shift())
+			var formattedDate = splitDate.join('/')
 
-                        $('#entryInfo').append(
 
-                            `<h3>No Dangerous Asteroids.</h3>`
-                        )
-                    } else {
+// Error Handling for single day form
 
-                        $('#entryInfo').append(
+			if (userDate === '') {
 
-                            `<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
+				$('#message').append(`<h2>Please enter a valid date.</h2>`)
+			}
 
-                        )
-                    }
+			else {
 
-                    // Print Summary
 
-                    $('#summary').append(
-                        `<div id="summaryAccordion" data-children=".item">
+// Single-day GET request
+
+				$.get(`/search?start_date=${userDate}`, function(body, status) {
+
+					body = JSON.parse(body)
+
+					var hazardousAsteroids = []
+
+					if (body.near_earth_objects[userDate]) {
+					
+						for(var asteroid of body.near_earth_objects[userDate]) {
+						
+
+	// Declare variables and push into the hazardousAsteroids array
+
+
+						var name = asteroid.name
+
+						var diameter = Math.floor(Number(asteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
+					
+						var velocity = Math.floor(Number(asteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
+
+						var distanceFromEarth = Math.floor(Number(asteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
+
+						var link = asteroid.nasa_jpl_url
+
+						
+						if(asteroid.is_potentially_hazardous_asteroid) {
+
+							var id = asteroid.neo_reference_id
+
+							// $.get(`/sentry?spk=${id}`, function(body, status) {
+
+							// 	body = JSON.parse(body)
+
+							// 	console.log(body)
+							// })							
+
+							hazardousAsteroids.push(asteroid)
+						
+	// Print results to html page
+
+							$('#entry').append (
+								`
+								<div id='listDiv'>
+								<h4 id='listName'><a href="${link}" target="_blank">${name}<a></h4>
+								 <p id='listDiameter'>${'Estimated Diameter: ' + diameter + ' ft'}</p>
+								 <p id='listVelocity'>${'Velocity: ' + velocity + ' mph'}</p>
+								 <p id='listDistance'>${'Distance from Earth: ' + distanceFromEarth + ' miles'}</p>
+								 </div>
+								 `
+								)
+
+						}		
+
+					}
+						
+// Print to html
+							$('#entryInfo').append (
+								
+								`<h3 class="dateInfo">${'Date: ' + formattedDate}</h3>`
+		
+								)
+				
+							
+							if (hazardousAsteroids.length === 0) {
+
+								$('#entryInfo').append (	
+
+									`<h3>No Dangerous Asteroids.</h3>`
+									)
+								}
+
+								else {
+
+									$('#entryInfo').append (
+										
+										`<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
+										
+										)
+								}
+
+// Print Summary
+
+							$('#summary').append (
+								`<div id="summaryAccordion" data-children=".item">
 								  <div class="item">
 								    <a data-toggle="collapse" data-parent="#summaryAccordion" href="#summaryAccordion1" aria-expanded="true" aria-controls="summaryAccordion1">
 								      Summary
@@ -282,112 +291,114 @@ $(document).ready(function() {
 								  </div>
 								</div>
 								`
-                    )
-                } else {
+								)
+						}
 
-                    $('#message').append(`<h2>Invalid date format</h3>`)
-                }
+						else {
 
-            }, scrollToResults())
+							$('#message').append(`<h2>Invalid date format</h3>`)
+						}
+					scrollToResults()
+				})
 
-        }
+			}			
+		
+	})
 
-    })
+// PAST WEEK ================================================================================================================================================================================
 
-    // PAST WEEK ================================================================================================================================================================================
+		
+		$('#showWeek').on('click', function(){
 
+			resetHTML()
 
-    $('#showWeek').on('click', function() {
+			var today = new Date()
 
-        resetHTML()
+			var formatToday = new Date(+today - today.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
+			
+			var lastWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000)
 
-        var today = new Date()
+			var formatWeek = new Date(+lastWeek - lastWeek.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
 
-        var formatToday = new Date(+today - today.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
+// Reformat the Date to US time format
+			
+			var splitDate = formatWeek.split('-')
+			splitDate.push(splitDate.shift())
+			var formatStartDate = splitDate.join('/')
 
-        var lastWeek = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000)
+			
+			var splitDate = formatToday.split('-')
+			splitDate.push(splitDate.shift())
+			var formatEndDate = splitDate.join('/')
 
-        var formatWeek = new Date(+lastWeek - lastWeek.getTimezoneOffset() * 60 * 1000).toISOString().split('T')[0]
+			$('#startDate')[0].value = formatWeek
+			$('#endDate')[0].value = formatToday
 
-        // Reformat the Date to US time format
+// Range-date GET request
 
-        var splitDate = formatWeek.split('-')
-        splitDate.push(splitDate.shift())
-        var formatStartDate = splitDate.join('/')
+			$.get(`/range_search?start_date=${formatWeek}&end_date=${formatToday}`, function(body, status) {
 
+				body = JSON.parse(body)
 
-        var splitDate = formatToday.split('-')
-        splitDate.push(splitDate.shift())
-        var formatEndDate = splitDate.join('/')
+				var totalAsteroids = []
 
-        $('#startDate')[0].value = formatWeek
-        $('#endDate')[0].value = formatToday
+				var hazardousAsteroids = []
 
-        // Range-date GET request
-
-        $.get(`/range_search?start_date=${formatWeek}&end_date=${formatToday}`, function(body, status) {
-
-            body = JSON.parse(body)
-
-            var totalAsteroids = []
-
-            var hazardousAsteroids = []
-
-
-            for (var day in body.near_earth_objects) {
-
-
-                for (var asteroid = 0; asteroid < body.near_earth_objects[day].length; asteroid++) {
-
-                    totalAsteroids.push(body.near_earth_objects[day][asteroid])
+				
+				for(var day in body.near_earth_objects) {
 
 
+					for(var asteroid = 0; asteroid < body.near_earth_objects[day].length; asteroid++) {
 
-                    if (body.near_earth_objects[day][asteroid].is_potentially_hazardous_asteroid === true) {
+						totalAsteroids.push(body.near_earth_objects[day][asteroid])
 
+						
 
-                        // Reformat the Date to US time format
-
-                        var date = body.near_earth_objects[day][asteroid].close_approach_data[0].close_approach_date
-
-                        var splitDate = date.split('-')
-                        splitDate.push(splitDate.shift())
-                        var formattedDate = splitDate.join('/')
+						if(body.near_earth_objects[day][asteroid].is_potentially_hazardous_asteroid === true) {
 
 
-                        // Declare Variables and push into the hazardousAsteroids array
+// Reformat the Date to US time format
 
-                        var days = body.near_earth_objects
+							var date = body.near_earth_objects[day][asteroid].close_approach_data[0].close_approach_date
 
-                        var dayAsteroid = body.near_earth_objects[day][asteroid]
-
-                        var name = dayAsteroid.name
-
-                        var diameter = Math.floor(Number(dayAsteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
-
-                        var velocity = Math.floor(Number(dayAsteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
-
-                        var distanceFromEarth = Math.floor(Number(dayAsteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
-
-                        var link = dayAsteroid.nasa_jpl_url
-
-                        var id = dayAsteroid.neo_reference_id
-
-                        // $.get(`/sentry?spk=${id}`, function(body, status) {
-
-                        // 	body = JSON.parse(body)
-
-                        // 	console.log(body)
-                        // })	
+							var splitDate = date.split('-')
+							splitDate.push(splitDate.shift())
+							var formattedDate = splitDate.join('/')
 
 
-                        hazardousAsteroids.push(dayAsteroid)
+// Declare Variables and push into the hazardousAsteroids array
+
+							var days = body.near_earth_objects
+
+							var dayAsteroid = body.near_earth_objects[day][asteroid]
+
+							var name = dayAsteroid.name
+					
+							var diameter = Math.floor(Number(dayAsteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
+				
+							var velocity = Math.floor(Number(dayAsteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
+
+							var distanceFromEarth = Math.floor(Number(dayAsteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
+
+							var link = dayAsteroid.nasa_jpl_url
+
+							var id = dayAsteroid.neo_reference_id
+
+							// $.get(`/sentry?spk=${id}`, function(body, status) {
+
+							// 	body = JSON.parse(body)
+
+							// 	console.log(body)
+							// })	
 
 
-                        // Print results to the html page 
+							hazardousAsteroids.push(dayAsteroid)
 
-                        $('#entry').append(
-                            `
+
+// Print results to the html page 
+
+							$('#entry').append(
+							`
 							<div id='listDiv'>
 							<h4 id='listName'><a href="${link}" target="_blank">${name}<a></h4>
 							<p id="listDate">${'Date: ' + formattedDate}</p>
@@ -396,45 +407,49 @@ $(document).ready(function() {
 							 <p id='listDistance'>${'Distance from Earth: ' + distanceFromEarth + ' miles'}</p>
 							 </div>
 							 `
-                        )
-                    }
-                }
-            }
+							)	
+						}
+					}
+				}							
+							
 
+// Error handling for invalid api request
+// Print results info to html
 
-            // Error handling for invalid api request
-            // Print results info to html
+							if (body.code === 400) {
 
-            if (body.code === 400) {
-
-                $('#message').append(`<h2>Search is limited to 7 continuous days.</h2>`)
-
-            } else {
-
-                $('#entryInfo').append(
-                    `
+							$('#message').append(`<h2>Search is limited to 7 continuous days.</h2>`)
+							
+							}
+							
+							else {
+							
+							$('#entryInfo').append (
+								`
 								<h3 class="dateInfo">${'Date Range: ' + formatStartDate + ' - ' + formatEndDate}</h3>`
-                )
+								)
 
-                if (hazardousAsteroids.length === 0) {
+								if (hazardousAsteroids.length === 0) {
 
-                    $('#entryInfo').append(
+									$('#entryInfo').append (
 
-                        `<h3>No Dangerous Asteroids.</h3>`
+									`<h3>No Dangerous Asteroids.</h3>`
 
-                    )
-                } else {
+									)
+								}
 
-                    $('#entryInfo').append(
+								else {
 
-                        `<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
+									$('#entryInfo').append (
+										
+										`<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
+										
+										)
+								}
+							}
 
-                    )
-                }
-            }
-
-            $('#summary').append(
-                `<div id="summaryAccordion" data-children=".item">
+							$('#summary').append (
+								`<div id="summaryAccordion" data-children=".item">
 								  <div class="item">
 								    <a data-toggle="collapse" data-parent="#summaryAccordion" href="#summaryAccordion1" aria-expanded="true" aria-controls="summaryAccordion1">
 								      Summary
@@ -448,162 +463,172 @@ $(document).ready(function() {
 								    </div>
 								  </div>
 								</div>`
-            )
+								)
+					scrollToResults()
+				})
 
-        }, scrollToResults())
-
-    })
-
-
-    // RANGE-DATE =================================================================================================================================================================================
+		})
 
 
-    $('#rangeSearch').on('submit', function(event) {
+// RANGE-DATE =================================================================================================================================================================================
 
-        resetHTML()
+		
+		$('#rangeSearch').on('submit', function(event) {
+			
+			resetHTML()
 
-        event.preventDefault()
+			event.preventDefault()
 
-        var startDate = $('#startDate').val()
+			var startDate = $('#startDate').val()
+			
+			var endDate = $('#endDate').val()
 
-        var endDate = $('#endDate').val()
-
-        var splitDate = startDate.split('-')
-        splitDate.push(splitDate.shift())
-        var formatStartDate = splitDate.join('/')
-
-
-        // Reformat the Date to US time format
-
-        var splitDate = endDate.split('-')
-        splitDate.push(splitDate.shift())
-        var formatEndDate = splitDate.join('/')
+			var splitDate = startDate.split('-')
+			splitDate.push(splitDate.shift())
+			var formatStartDate = splitDate.join('/')
 
 
-        // Error Handling for range form
+// Reformat the Date to US time format
 
-        if (startDate === '' && endDate === '') {
-
-            $('#message').append(`<h2>Please enter a valid START and END date.</h2>`)
-        } else if (startDate === '') {
-
-            $('#message').append(`<h2>Please enter a valid START date.</h2>`)
-        } else if (endDate === '') {
-
-            $('#message').append(`<h2>Please enter a valid END date.</h2>`)
-        } else {
+			var splitDate = endDate.split('-')
+			splitDate.push(splitDate.shift())
+			var formatEndDate = splitDate.join('/')
 
 
-            // Range-date GET request
+// Error Handling for range form
+			
+			if ( startDate === '' && endDate === '') {
 
-            $.get(`/range_search?start_date=${startDate}&end_date=${endDate}`, function(body, status) {
+				$('#message').append(`<h2>Please enter a valid START and END date.</h2>`)
+			}
 
-                body = JSON.parse(body)
+			else if ( startDate === '') {
 
-                var totalAsteroids = []
+				$('#message').append(`<h2>Please enter a valid START date.</h2>`)
+			}
 
-                var hazardousAsteroids = []
+			else if (endDate === '') {
 
+				$('#message').append(`<h2>Please enter a valid END date.</h2>`)
+			}
 
-                for (var day in body.near_earth_objects) {
-
-
-                    for (var asteroid = 0; asteroid < body.near_earth_objects[day].length; asteroid++) {
-
-                        totalAsteroids.push(body.near_earth_objects[day][asteroid])
-
-
-
-                        if (body.near_earth_objects[day][asteroid].is_potentially_hazardous_asteroid === true) {
-
-                            var date = body.near_earth_objects[day][asteroid].close_approach_data[0].close_approach_date
+			else {
 
 
-                            // Reformat the Date to US time format
+// Range-date GET request
 
-                            var splitDate = date.split('-')
-                            splitDate.push(splitDate.shift())
-                            var formattedDate = splitDate.join('/')
+			$.get(`/range_search?start_date=${startDate}&end_date=${endDate}`, function(body, status) {
 
+				body = JSON.parse(body)
 
-                            // Declare Variables and push into the hazardousAsteroids array
+				var totalAsteroids = []
 
-                            var days = body.near_earth_objects
+				var hazardousAsteroids = []
 
-                            var dayAsteroid = body.near_earth_objects[day][asteroid]
-
-                            var name = dayAsteroid.name
-
-                            var diameter = Math.floor(Number(dayAsteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
-
-                            var velocity = Math.floor(Number(dayAsteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
-
-                            var distanceFromEarth = Math.floor(Number(dayAsteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
-
-                            var link = dayAsteroid.nasa_jpl_url
-
-                            var id = dayAsteroid.neo_reference_id
-
-                            // $.get(`/sentry?spk=${id}`, function(body, status) {
-
-                            // 	body = JSON.parse(body)
-
-                            // 	console.log(body)
-                            // })
-
-                            hazardousAsteroids.push(dayAsteroid)
+				
+				for(var day in body.near_earth_objects) {
 
 
-                            // Print results to the html page 
+					for(var asteroid = 0; asteroid < body.near_earth_objects[day].length; asteroid++) {
 
-                            $('#entry').append(
+						totalAsteroids.push(body.near_earth_objects[day][asteroid])
 
-                                `<div id='listDiv'>
+						
+
+						if(body.near_earth_objects[day][asteroid].is_potentially_hazardous_asteroid === true) {
+
+							var date = body.near_earth_objects[day][asteroid].close_approach_data[0].close_approach_date
+
+
+// Reformat the Date to US time format
+
+							var splitDate = date.split('-')
+							splitDate.push(splitDate.shift())
+							var formattedDate = splitDate.join('/')
+
+
+// Declare Variables and push into the hazardousAsteroids array
+							
+							var days = body.near_earth_objects
+
+							var dayAsteroid = body.near_earth_objects[day][asteroid]
+
+							var name = dayAsteroid.name
+					
+							var diameter = Math.floor(Number(dayAsteroid.estimated_diameter.feet.estimated_diameter_max)).toLocaleString()
+				
+							var velocity = Math.floor(Number(dayAsteroid.close_approach_data[0].relative_velocity.miles_per_hour)).toLocaleString()
+
+							var distanceFromEarth = Math.floor(Number(dayAsteroid.close_approach_data[0].miss_distance.miles)).toLocaleString()
+
+							var link = dayAsteroid.nasa_jpl_url
+
+							var id = dayAsteroid.neo_reference_id
+
+							// $.get(`/sentry?spk=${id}`, function(body, status) {
+
+							// 	body = JSON.parse(body)
+
+							// 	console.log(body)
+							// })
+
+							hazardousAsteroids.push(dayAsteroid)
+
+
+// Print results to the html page 
+
+							$('#entry').append(
+							
+							`<div id='listDiv'>
 							<h4 id='listName'><a href="${link}" target="_blank">${name}<a></h4>
 							<p id="listDate">${'Date: ' + formattedDate}</p>
 							 <p id='listDiameter'>${'Estimated Diameter: ' + diameter + ' ft'}</p>
 							 <p id='listVelocity'>${'Velocity: ' + velocity + ' mph'}</p>
 							 <p id='listDistance'>${'Distance from Earth: ' + distanceFromEarth + ' miles'}</p>
 							 </div>`
-                            )
-                        }
-                    }
-                }
+							)	
+						}
+					}
+				}
 
 
-                // Error handling for invalid api request
-                // Print results info to html
+// Error handling for invalid api request
+// Print results info to html
 
-                if (body.code === 400) {
+							if (body.code === 400) {
 
-                    $('#message').append(`<h2>Search is limited to 7 continuous days.</h2>`)
-
-                } else {
-
-                    $('#entryInfo').append(
-                        `
+							$('#message').append(`<h2>Search is limited to 7 continuous days.</h2>`)
+							
+							}
+							
+							else {
+							
+							$('#entryInfo').append (
+								`
 								<h3 class="dateInfo">${'Date Range: ' + formatStartDate + ' - ' + formatEndDate}</h3>`
-                    )
+								)
 
-                    if (hazardousAsteroids.length === 0) {
+								if (hazardousAsteroids.length === 0) {
 
-                        $('#entryInfo').append(
+									$('#entryInfo').append (
 
-                            `<h3>No Dangerous Asteroids.</h3>`
+									`<h3>No Dangerous Asteroids.</h3>`
 
-                        )
-                    } else {
+									)
+								}
 
-                        $('#entryInfo').append(
+								else {
 
-                            `<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
+									$('#entryInfo').append (
+										
+										`<h3>${'Number of Dangerous Asteroids: ' + hazardousAsteroids.length}</h3>`
+										
+										)
+								}
+							}
 
-                        )
-                    }
-                }
-
-                $('#summary').append(
-                    `<div id="summaryAccordion" data-children=".item">
+							$('#summary').append (
+								`<div id="summaryAccordion" data-children=".item">
 								  <div class="item">
 								    <a data-toggle="collapse" data-parent="#summaryAccordion" href="#summaryAccordion1" aria-expanded="true" aria-controls="summaryAccordion1">
 								      Summary
@@ -617,34 +642,34 @@ $(document).ready(function() {
 								    </div>
 								  </div>
 								</div>`
-                )
+								)
 
+				scrollToResults()
+			})
 
-            }, scrollToResults())
+		}
 
-        }
-
-    })
-
+	})
+	
 })
 //FUNCTIONS ==============================================================================================================================================================================
 
-// RESET HTML FUNCTION
+	// RESET HTML FUNCTION
 
-var resetHTML = function() {
+	function resetHTML(){
 
-    $('#entryInfo').empty()
-    $('#entry').empty()
-    $('#message').empty()
-    $('#summary').empty()
-}
-
-var scrollToResults = function() {
-    var top = $('.results').offset().top
-    $('html, body').animate({
-        scrollTop: top,
-    }, 500)
-}
+			$('#entryInfo').empty()
+			$('#entry').empty()
+			$('#message').empty()
+			$('#summary').empty()
+	}
+	
+	function scrollToResults(){
+		var top = $('.results').offset().top
+		$('html, body').animate({
+			scrollTop: top,
+		},500)
+	}
 
 
 
