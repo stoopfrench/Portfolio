@@ -156,10 +156,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-                            <form id="contactForm" enctype="multipart/form-data" method="POST" required>
+                            <form id="contactForm" enctype="multipart/form-data" method="POST">
                                 <div class="form-group">
                                     <label for="contactName">Name</label>
-                                    <input id="contactName" type="text" class="form-control" name="name" required>
+                                    <input id="contactName" type="text" class="form-control" name="name">
                                 </div>
                                 <div class="form-group">
                                     <label for="contactEmail">Email</label>
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="contactMessage">Message</label>
-                                    <textarea id="contactMessage" class="form-control" rows="5" name="message" ></textarea required>
+                                    <textarea id="contactMessage" class="form-control" rows="5" name="message"></textarea>
                                 </div>
                                 <div id="sendMessageButton">
                                     <button type="submit" class="btn btn-primary">Send Message</button>
@@ -191,12 +191,30 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="successMessageLabel">Success!</h5>
+                  <h5 class="modal-title" id="successMessageLabel">Message Sent</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="clearForm()" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="failMessage" tabindex="-1" role="dialog" aria-labelledby="failMessageLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="failMessageLabel">Message Failed</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    All fields are REQUIRED.
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

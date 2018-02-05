@@ -10,7 +10,7 @@ $(document).ready(function() {
     $('#sendMessageButton').on('click', (event) => {
         event.preventDefault()
         
-        if($('#contactName').val() != "" || $('#contactEmail').val() != "" || $('#contactMessage').val() != ""){
+        if($('#contactName').val().trim() != '' && $('#contactEmail').val().trim() != '' && $('#contactMessage').val().trim() != '') {
             let form = $('#contactForm')[0]
             let data = new FormData(form) 
             $.ajax({
@@ -24,7 +24,6 @@ $(document).ready(function() {
                 success: function(data){
                     $('#successMessage').modal('show')
                     $('.modal-body').text(`Thank you, ${data.Name}. Your message has been submitted`)
-                    console.log(data)
                 },
                 error: function(err){
                     console.log('error ', err)
@@ -32,10 +31,10 @@ $(document).ready(function() {
             })
         } 
         else {
-            //Failure modal with explaination
+            $('#failMessage').modal('show')
+            
             console.log('invalid')
-        }
-         
+        }  
     })
 
     function scrolltoTop() {
@@ -52,5 +51,8 @@ $(document).ready(function() {
             scrollTop: projectsTop,
         }, 500);
     }
-})
+});
 
+function clearForm(){
+    $('#contactForm')[0].reset()      
+}

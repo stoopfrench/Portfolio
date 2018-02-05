@@ -1,7 +1,6 @@
 const express = require('express')
 const HTTP = require('http')
 const HTTPS = require('https')
-const mongoose = require('mongoose')
 const multer = require('multer')
 const bodyParser = require('body-parser')
 const fs = require('fs')
@@ -10,29 +9,7 @@ const request = require('request')
 const secrets = require('./secrets.js')
 
 const app = express()
-const upload = multer({dest: './public/messages/'})
-mongoose.connect('mongodb://localhost:27017/Messages')
-
-const messageSchema = new mongoose.Schema({
-    Date: {
-        type: String,
-        required: true
-    },
-    Name: {
-        type: String,
-        required: true
-    },
-    Email: {
-        type: String,
-        required: true
-    },
-    Message: {
-        type: String,
-        required: true
-    }
-})
-
-const MessageModel = mongoose.model('Message', messageSchema)
+const upload = multer()
 
 app.use(express.static('./public'))
 app.use(bodyParser.urlencoded({extended: false}))
@@ -123,37 +100,21 @@ app.get('/sentry_data', function(req, res) {
     })
 })
 
-// Messages
-
+// Messages =============================================================================
 app.post('/messages', upload.single(), function(req, res) {
-    // console.log(req.body)
-    let date = new Date
-/*     let message = MessageModel({
-        Date: date.toLocaleString('en-US'),
-        Name: req.body.name,
-        Email: req.body.email,
-        Message: req.body.message
-    }) */
-    let message = {
+    const date = new Date
+    const message = {
         Date: date.toLocaleString('en-US'),
         Name: req.body.name,
         Email: req.body.email,
         Message: req.body.message
     }
-    fs.appendFile('Messages.txt', JSON.stringify(message), (err) => {
+    let text = JSON.stringify(message) + '\n'
+    fs.appendFile('Messages.txt', text, (err) => {
         if (err) throw err
-        console.log('saved message, ',message)
+        // console.log('saved message: ',message)
     })
     res.status(201).send(message)    
-    // res.status(201).redirect(301, '/#contactForm')    
-/*     message.save(function(err){
-        if (err) {
-            res.send(err)
-        }
-        else {
-            res.status(201).redirect(301, '/#contactForm')
-        }
-    }) */
 })
 
 
