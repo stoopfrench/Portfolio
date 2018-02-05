@@ -109,7 +109,7 @@ app.post('/messages', upload.single(), function(req, res) {
         Email: req.body.email,
         Message: req.body.message
     }
-    let text = JSON.stringify(message) + '\n'
+    var text = JSON.stringify(message) + '\n'
     fs.appendFile('Messages.txt', text, (err) => {
         if (err) throw err
         // console.log('saved message: ',message)
