@@ -2,47 +2,55 @@ $(document).ready(function() {
 
     console.log('DOCUMENT LOADED')
 
-    $(window).scrollTop(0)
-
     $('#chevronImage').on('click', function() {
 
         scrollToProjects()
     })
 
-    $('#toTopImage').on('click', function() {
-
-        scrolltoTop()
+    $('#sendMessageButton').on('click', (event) => {
+        event.preventDefault()
+        
+        if($('#contactName').val() != "" || $('#contactEmail').val() != "" || $('#contactMessage').val() != ""){
+            let form = $('#contactForm')[0]
+            let data = new FormData(form) 
+            $.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: "/messages",
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function(data){
+                    $('#successMessage').modal('show')
+                    $('.modal-body').text(`Thank you, ${data.Name}. Your message has been submitted`)
+                    console.log(data)
+                },
+                error: function(err){
+                    console.log('error ', err)
+                }
+            })
+        } 
+        else {
+            //Failure modal with explaination
+            console.log('invalid')
+        }
+         
     })
 
-    let scrolltoTop = function() {
+    function scrolltoTop() {
 
         $('html, body').animate({
             scrollTop: 0,
         }, 500)
     }
 
-    let scrollToAbout = function() {
-
-        var aboutTop = $('#aboutPage').offset().top;
-        $('html, body').animate({
-            scrollTop: aboutTop,
-        }, 500);
-    }
-
-    let scrollToProjects = function() {
+    function scrollToProjects() {
 
         var projectsTop = $('#projectsPage').offset().top;
         $('html, body').animate({
             scrollTop: projectsTop,
         }, 500);
     }
-
-    let scrollToContact = function() {
-
-        var contactTop = $('#contactPage').offset().top;
-        $('html, body').animate({
-            scrollTop: contactTop,
-        }, 500);
-    }
-
 })
+
