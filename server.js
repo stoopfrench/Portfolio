@@ -120,7 +120,7 @@ app.post('/messages', upload.single(), function(req, res) {
 
 //==================================================
 
-/* try {
+try {
     var httpsConfig = {
 
         key: fs.readFileSync('/etc/letsencrypt/live/iamaaronallen.com/privkey.pem'),
@@ -149,13 +149,13 @@ catch(e){
     var httpServer = HTTP.createServer(app)
 
     httpServer.listen(80)
-} */
+}
 
-var port = 8080
+/* var port = 8080
 
 var counter
 
 app.listen(port, function() {
 
     console.log('portfolio running on ', port)
-})
+}) */
