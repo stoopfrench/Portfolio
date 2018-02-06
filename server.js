@@ -12,7 +12,7 @@ const app = express()
 const upload = multer()
 
 app.use(express.static('./public'))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Portfolio -----------------------------------------------------
@@ -43,7 +43,7 @@ app.get('/asteroids/top-25', function(req, res) {
 
 app.get('/rps', function(req, res) {
 
-    res.sendFile('./public/html/rps.html', {root: './'})
+    res.sendFile('./public/html/rps.html', { root: './' })
 
     console.log('sent rps.html')
 })
@@ -52,7 +52,7 @@ app.get('/rps', function(req, res) {
 
 app.get('/calc', function(req, res) {
 
-    res.sendFile('./public/html/calc.html', {root: './'})
+    res.sendFile('./public/html/calc.html', { root: './' })
 
     console.log('sent calc.html')
 })
@@ -88,7 +88,6 @@ app.get('/range_search', function(req, res) {
 
 // SENTRY API ===========================================================================
 
-
 app.get('/sentry_data', function(req, res) {
 
     var sentryAPI = `https://ssd-api.jpl.nasa.gov/sentry.api`
@@ -100,8 +99,11 @@ app.get('/sentry_data', function(req, res) {
     })
 })
 
+
 // Messages =============================================================================
+
 app.post('/messages', upload.single(), function(req, res) {
+
     const date = new Date
     const message = {
         Date: date.toLocaleString('en-US'),
@@ -114,17 +116,27 @@ app.post('/messages', upload.single(), function(req, res) {
         if (err) throw err
         // console.log('saved message: ',message)
     })
-    res.status(201).send(message)    
+    res.status(201).send(message)
 })
+
+/*app.get('/messages', function(req, res) {
+    fs.readFile('./Messages.txt', function(err, data) {
+        if(err) throw error
+        console.log(data)
+        res.send(data)
+    })
+})*/
 
 
 //==================================================
+var httpsKey = secrets.httpsKey
+var httpsCert = secrets.httpsCert
 
 try {
     var httpsConfig = {
 
-        key: fs.readFileSync('/etc/letsencrypt/live/iamaaronallen.com/privkey.pem'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/iamaaronallen.com/fullchain.pem'),
+        key: fs.readFileSync(httpsKey),
+        cert: fs.readFileSync(httpsCert),
     }
 
     var httpsServer = HTTPS.createServer(httpsConfig, app)
@@ -151,11 +163,9 @@ catch(e){
     httpServer.listen(80)
 }
 
-/* var port = 8080
-
-var counter
+/*var port = 8080
 
 app.listen(port, function() {
 
     console.log('portfolio running on ', port)
-}) */
+})*/

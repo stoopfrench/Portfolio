@@ -15,7 +15,7 @@ $(document).ready(function() {
             let data = new FormData(form) 
             $.ajax({
                 type: "POST",
-                enctype: 'multipart/form-data',
+                enctype: "multipart/form-data",
                 url: "/messages",
                 data: data,
                 processData: false,
@@ -23,7 +23,7 @@ $(document).ready(function() {
                 cache: false,
                 success: function(data){
                     $('#successMessage').modal('show')
-                    $('.modal-body').text(`Thank you, ${data.Name}. Your message has been submitted`)
+                    $('#successMessageBody').text(`Thank you, ${data.Name}. Your message has been submitted`)
                 },
                 error: function(err){
                     console.log('error ', err)
@@ -32,8 +32,6 @@ $(document).ready(function() {
         } 
         else {
             $('#failMessage').modal('show')
-            
-            console.log('invalid')
         }  
     })
 
@@ -46,7 +44,7 @@ $(document).ready(function() {
 
     function scrollToProjects() {
 
-        var projectsTop = $('#projectsPage').offset().top;
+        var projectsTop = $('#projectsPage').offset().top
         $('html, body').animate({
             scrollTop: projectsTop,
         }, 500);

@@ -256,6 +256,15 @@ h1 {
     cursor: pointer;
 }
 
+/*SUCCESS MODAL ==========================================================*/
+#successMessage .modal-header {
+    color: green;
+}
+
+/*FAILURE MODAL ==========================================================*/
+#failMessage .modal-header {
+    color: red;
+}
 
 /*FOOTER =================================================================*/
 
