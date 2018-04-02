@@ -1,14 +1,11 @@
 $(document).ready(function() {
 
-        let date = new Date
-
-        const views = {
-            date: date
-        }
-        
-        $.post('/viewcount', views, function(data) {
-            console.log(data)
-        })
+    const views = {
+        date: new Date
+    }
+    $.post('/viewcount', views, function(data) {
+        console.log(data)
+    })
 
     console.log('DOCUMENT LOADED')
 

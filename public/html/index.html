@@ -199,15 +199,15 @@
                             <form id="contactForm" enctype="multipart/form-data" method="POST">
                                 <div class="form-group">
                                     <label for="contactName">Name</label>
-                                    <input id="contactName" type="text" class="form-control" name="name">
+                                    <input id="contactName" type="text" class="form-control" name="name" autocomplete="off">
                                 </div>
                                 <div class="form-group">
                                     <label for="contactEmail">Email</label>
-                                    <input id="contactEmail" type="email" class="form-control" name="email" required>
+                                    <input id="contactEmail" type="email" class="form-control" name="email" autocomplete="off" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="contactMessage">Message</label>
-                                    <textarea id="contactMessage" class="form-control" rows="5" name="message"></textarea>
+                                    <textarea id="contactMessage" class="form-control" rows="5" name="message" autocomplete="off"></textarea>
                                 </div>
                                 <div id="sendMessageButton">
                                     <button type="submit" class="btn btn-primary">Send Message</button>
