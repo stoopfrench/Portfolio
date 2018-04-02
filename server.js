@@ -134,7 +134,7 @@ app.post('/viewcount', function(req, res) {
 })
 
 //==================================================
-/* var httpsKey = secrets.httpsKey
+var httpsKey = secrets.httpsKey
 var httpsCert = secrets.httpsCert
 
 try {
@@ -166,11 +166,11 @@ catch(e){
     var httpServer = HTTP.createServer(app)
 
     httpServer.listen(80)
-} */
+}
 
-var port = 8083
+/* var port = 8083
 
 app.listen(port, function() {
 
     console.log('portfolio running on ', port)
-})
+}) */
