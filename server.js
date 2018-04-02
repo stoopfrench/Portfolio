@@ -118,8 +118,23 @@ app.post('/messages', upload.single(), function(req, res) {
     res.status(201).send(message)
 })
 
+// View Counter
+let count = 0
+app.post('/viewcount', function(req, res) {
+    count++
+    const data = {
+        Count: count,
+        Date: req.body.date.toLocaleString('en-US')
+    }
+    const views = JSON.stringify(data) + '\n'
+    fs.appendFile('View Count.txt', views, (err) => {
+        if(err) throw err
+    })
+    res.status(201).send("NEW CONNECTION")
+})
+
 //==================================================
-var httpsKey = secrets.httpsKey
+/* var httpsKey = secrets.httpsKey
 var httpsCert = secrets.httpsCert
 
 try {
@@ -151,11 +166,11 @@ catch(e){
     var httpServer = HTTP.createServer(app)
 
     httpServer.listen(80)
-}
+} */
 
-/* var port = 8083
+var port = 8083
 
 app.listen(port, function() {
 
     console.log('portfolio running on ', port)
-}) */
+})

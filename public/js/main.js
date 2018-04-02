@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+        let date = new Date
+
+        const views = {
+            date: date
+        }
+        
+        $.post('/viewcount', views, function(data) {
+            console.log(data)
+        })
+
     console.log('DOCUMENT LOADED')
 
     $('#chevronImage').on('click', function() {
