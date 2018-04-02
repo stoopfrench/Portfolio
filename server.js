@@ -114,19 +114,9 @@ app.post('/messages', upload.single(), function(req, res) {
     var text = JSON.stringify(message) + '\n'
     fs.appendFile('Messages.txt', text, (err) => {
         if (err) throw err
-        // console.log('saved message: ',message)
     })
     res.status(201).send(message)
 })
-
-/*app.get('/messages', function(req, res) {
-    fs.readFile('./Messages.txt', function(err, data) {
-        if(err) throw error
-        console.log(data)
-        res.send(data)
-    })
-})*/
-
 
 //==================================================
 var httpsKey = secrets.httpsKey
@@ -163,9 +153,9 @@ catch(e){
     httpServer.listen(80)
 }
 
-/*var port = 8080
+/* var port = 8083
 
 app.listen(port, function() {
 
     console.log('portfolio running on ', port)
-})*/
+}) */

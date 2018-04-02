@@ -3,8 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
-root: {
-
+html {
     font-size: 16px;
 }
 
@@ -90,8 +89,7 @@ h1 {
 
     width: 100vw;
     min-height: 100vh;
-    background-color: #EFEFEF;
-    background-image: radial-gradient(circle at center, white, #EFEFEF);
+    background-color: white;
 }
 
 #projectsPageTitle {
@@ -104,7 +102,6 @@ h1 {
 
 .projectsGif {
 
-    /*border: 3px solid black;*/
     box-shadow: 0px 0px 5px black;
     border-radius: 5px;
     margin-top: 1rem;
@@ -133,8 +130,6 @@ h1 {
 .projectsDescription {
 
     text-align: left;
-    /*font-weight: 900;*/
-    /*font-family: 'Raleway', sans-serif;*/
     font-family: 'Slabo 27px', serif;
     padding-top: 1rem;
     font-size: 1.25rem;
@@ -143,7 +138,6 @@ h1 {
 
 .projectsSVG {
 
-    /*background-color: #BDBDBD;*/
     margin-top: 2rem;
 }
 
@@ -173,7 +167,6 @@ h1 {
 
 #popSpots {
 
-    /*border-top: 1px solid #C5C5C5;*/
     border-bottom: 2px solid #CDCDCD;
     padding: 1.5rem;
 }
@@ -195,8 +188,24 @@ h1 {
 #vueToDo {
 
     padding: 1.5rem;
+    background-color: white;
 }
 
+/* React Front End */
+#reactFrontend {
+    
+    border-bottom: 2px solid #CDCDCD;
+    padding: 1.5rem;
+    background-image: radial-gradient(circle at center, #F5F5F5, #D9D9D9);
+}
+
+/* RESTful Apis */
+#restfulApi {
+    
+    border-bottom: 2px solid #CDCDCD;
+    padding: 1.5rem;
+    background-color: white;    
+}
 
 /*CONTACT PAGE ==========================================================*/
 
