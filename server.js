@@ -119,7 +119,7 @@ app.post('/messages', upload.single(), function(req, res) {
 })
 
 // View Counter
-let count = 0
+var count = 0
 app.post('/viewcount', function(req, res) {
     count++
     const data = {
